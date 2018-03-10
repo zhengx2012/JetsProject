@@ -2,7 +2,7 @@ package com.skilldistillery.projects.jets;
 
 public class AirField {
 	
-	public Jet [] jets = new Jet [100];
+	public Jet [] jets = new Jet [10];
 	
 	public AirField() {
 		Jet cargo1 = new CargoPlane("Boeing 777 Freighter", 901.21 , 9065, 295_700_000);

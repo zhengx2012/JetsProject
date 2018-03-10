@@ -45,7 +45,7 @@ public class JetApplication {
 			chooseAgain();
 		} else if (userInput == 2) {
 			System.out.println("\nJets getting ready for take off....");
-			System.out.println("...................................");
+			System.out.println();
 			for (int i = 0; i < jets.length; i++) {
 				if (jets[i] != null) {
 					Jet jet = jets[i];
@@ -57,15 +57,30 @@ public class JetApplication {
 		} else if (userInput == 3) {
 			for (int i = 0; i < jets.length; i++) {
 				double fastestJet = jets[0].getSpeed();
-				if (jets[i].getSpeed() > fastestJet) {
-					fastestJet = jets[i].getSpeed();
-					System.out.println("The fastest Jet is: " + jets[i].getClass().getSimpleName() 
-							+ " " + jets[i].getModel() +" with a speed of " +fastestJet);
+				if (jets[i] != null) {
+					if (jets[i].getSpeed() > fastestJet) {
+						fastestJet = jets[i].getSpeed();
+						System.out.println();
+						System.out.println("The fastest Jet is: " + jets[i].getClass().getSimpleName() + " "
+								+ jets[i].getModel() + " with a speed of " + fastestJet);
+					}
 				}
 			}
-
 			chooseAgain();
-
+			
+		} else if (userInput == 4) {
+			for (int i = 0; i < jets.length; i++) {
+				int longestRange = jets[0].getRange();
+				if (jets[i] != null) {
+					if (jets[i].getRange() > longestRange) {
+						longestRange = jets[i].getRange();
+						System.out.println();
+						System.out.println("The Jet  with the longest range is: " + jets[i].getClass().getSimpleName()
+								+ " " + jets[i].getModel() + " with a range of " + longestRange);
+					}
+				}
+			}
+			chooseAgain();
 		}
 
 	}

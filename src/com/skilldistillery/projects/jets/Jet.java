@@ -19,8 +19,10 @@ public abstract class Jet {
 	}
 
 	public void fly(Jet jets) {
-		System.out.println(jets.getModel() + " All clear for take off.");
+		System.out.println(jets.getClass().getSimpleName() + " " + jets.getModel() + " All clear for take off.");
 		System.out.println("\t(Engines rolling, taking off)");
+		// trying to insert an airplane emoji
+//		System.out.println("\t\tuD83D\\uDEEB");
 
 	}
 

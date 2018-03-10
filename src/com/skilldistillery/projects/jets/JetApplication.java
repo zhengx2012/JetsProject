@@ -7,12 +7,12 @@ public class JetApplication {
 	private static Scanner kb = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		System.out.println("Welcome to the Jet information section.");
-		displayUserMenu();
-
+		launch();
 	}
 
 	private static void launch() {
+		System.out.println("Welcome to the Jet information section.");
+		displayUserMenu();
 
 	}
 
@@ -39,35 +39,55 @@ public class JetApplication {
 			System.out.println("\nHere is the list of jets we have in stock: ");
 			for (int i = 0; i < jets.length; i++) {
 				if (jets[i] != null) {
-					System.out.println(jets[i].getModel());
-
+					System.out.println(jets[i].toString());
 				}
-			} 
+			}
 			chooseAgain();
-		}
-		else if (userInput == 2) {
-			
+		} else if (userInput == 2) {
+			System.out.println("\nJets getting ready for take off....");
+			System.out.println("...................................");
+			for (int i = 0; i < jets.length; i++) {
+				if (jets[i] != null) {
+					Jet jet = jets[i];
+					jet.fly(jets[i]);
+				}
+			}
+			chooseAgain();
+
+		} else if (userInput == 3) {
+			for (int i = 0; i < jets.length; i++) {
+				double fastestJet = jets[0].getSpeed();
+				if (jets[i].getSpeed() > fastestJet) {
+					fastestJet = jets[i].getSpeed();
+					System.out.println("The fastest Jet is: " + jets[i].getClass().getSimpleName() 
+							+ " " + jets[i].getModel() +" with a speed of " +fastestJet);
+				}
+			}
+
+			chooseAgain();
+
 		}
 
 	}
+
 	private static void chooseAgain() {
 		System.out.println("\nWhat would you like to do now?");
 		System.out.println("1. Go back to the main menu");
 		System.out.println("2. Quit");
 		System.out.println();
 		int userTryAgain = kb.nextInt();
-		
-		if ((userTryAgain != 1) && (userTryAgain !=2)) {
+
+		if ((userTryAgain != 1) && (userTryAgain != 2)) {
 			System.err.println("That is not an option, please choose only \"1\" or \"2\".");
 			chooseAgain();
 		}
-		
-		else if (userTryAgain ==1) {
+
+		else if (userTryAgain == 1) {
 			displayUserMenu();
 		}
-		
-		else if(userTryAgain == 2){
-			System.out.println("Goodbye, thank you for using our info system.");
+
+		else if (userTryAgain == 2) {
+			System.out.println("Goodbye, thank you for browing our Jet information.");
 			System.exit(0);
 		}
 

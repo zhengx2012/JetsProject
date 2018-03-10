@@ -18,8 +18,8 @@ public abstract class Jet {
 		this.price = price;
 	}
 
-	public void fly() {
-		System.out.println(" All clear for take off.");
+	public void fly(Jet jets) {
+		System.out.println(jets.getModel() + " All clear for take off.");
 		System.out.println("\t(Engines rolling, taking off)");
 
 	}
@@ -101,15 +101,14 @@ public abstract class Jet {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("Jets [model=");
+		builder.append("Jets Model is: ");
 		builder.append(model);
-		builder.append(", speed=");
+		builder.append(", speed: ");
 		builder.append(speed);
-		builder.append(", range=");
+		builder.append(", range: ");
 		builder.append(range);
-		builder.append(", price=");
+		builder.append(", price: ");
 		builder.append(price);
-		builder.append("]");
 		return builder.toString();
 	}
 

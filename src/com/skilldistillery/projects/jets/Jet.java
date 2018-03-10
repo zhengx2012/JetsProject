@@ -26,7 +26,7 @@ public abstract class Jet {
 
 	public double getMachSpeed(double jetSpeed) {
 		double machSpeed = 0;
-		machSpeed = jetSpeed * 768;
+		machSpeed = jetSpeed / 1225.04;
 		return machSpeed;
 	}
 

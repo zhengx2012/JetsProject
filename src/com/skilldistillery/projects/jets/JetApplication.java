@@ -1,5 +1,6 @@
 package com.skilldistillery.projects.jets;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class JetApplication {
@@ -28,7 +29,7 @@ public class JetApplication {
 		System.out.print("\n> ");
 
 		int userInput = kb.nextInt();
-		Jet[] jets = airField.getJets();
+		ArrayList<Jet> jets = airField.getJets();
 
 		if ((userInput < 1) || (userInput > 8)) {
 			System.out.println();
@@ -38,52 +39,55 @@ public class JetApplication {
 
 		} else if (userInput == 1) {
 			System.out.println("\nHere is the list of jets we have in stock: ");
-			for (int i = 0; i < jets.length; i++) {
-				if (jets[i] != null) {
-					System.out.println(jets[i].toString());
+			for (int i = 0; i < jets.size(); i++) {
+				if (jets.get(i) != null) {
+					System.out.println(jets.get(i).toString());
 				}
 			}
 			chooseAgain();
 		} else if (userInput == 2) {
 			System.out.println("\nJets getting ready for take off....");
 			System.out.println();
-			for (int i = 0; i < jets.length; i++) {
-				if (jets[i] != null) {
-					Jet jet = jets[i];
-					jet.fly(jets[i]);
+			for (int i = 0; i < jets.size(); i++) {
+				if (jets.get(i) != null) {
+					Jet jet = jets.get(i);
+					jet.fly(jets.get(i));
 				}
 			}
 			chooseAgain();
 
 		} else if (userInput == 3) {
-			for (int i = 0; i < jets.length; i++) {
-				double fastestJet = jets[0].getSpeed();
-				if (jets[i] != null) {
-					if (jets[i].getSpeed() > fastestJet) {
-						fastestJet = jets[i].getSpeed();
-						System.out.println();
-						System.out.println("The fastest Jet is: " + jets[i].getClass().getSimpleName() + " "
-								+ jets[i].getModel() + " with a speed of " + fastestJet);
-					}
+			for (int i = 0; i < jets.size(); i++) {
+				double fastestJet = jets.get(0).getSpeed();
+				if (jets.get(i).getSpeed() > fastestJet) {
+					fastestJet = jets.get(i).getSpeed();
+					System.out.println();
+					System.out.println("The fastest Jet is: " + jets.get(i).getClass().getSimpleName() + " "
+							+ jets.get(i).getModel() + " with a speed of " + fastestJet);
 				}
 			}
 			chooseAgain();
 
 		} else if (userInput == 4) {
-			for (int i = 0; i < jets.length; i++) {
-				int longestRange = jets[0].getRange();
-				if (jets[i] != null) {
-					if (jets[i].getRange() > longestRange) {
-//						longestRange = jets[i].getRange();
-						System.out.println();
-						System.out.println("The Jet  with the longest range is: " + jets[i].getClass().getSimpleName()
-								+ " " + jets[i].getModel() + " with a range of " + longestRange);
-					}
+			for (int i = 0; i < jets.size(); i++) {
+				int longestRange = jets.get(0).getRange();
+				if (jets.get(i).getRange() > longestRange) {
+					longestRange = jets.get(i).getRange();
+					System.out.println();
+					System.out.println("The Jet  with the longest range is: " + jets.get(i).getClass().getSimpleName()
+							+ " " + jets.get(i).getModel() + " with a range of " + longestRange);
 				}
 			}
 			chooseAgain();
+		} else if (userInput == 5) {
+
 		}
-		else if(userInput == 8) {
+
+		else if (userInput == 6) {
+
+		} else if (userInput == 7) {
+
+		} else if (userInput == 8) {
 			System.out.println("Goodbye, thank you for browing our Jet information.");
 			System.exit(0);
 		}

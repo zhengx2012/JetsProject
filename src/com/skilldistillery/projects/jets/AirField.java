@@ -1,8 +1,10 @@
 package com.skilldistillery.projects.jets;
 
+import java.util.ArrayList;
+
 public class AirField {
 	
-	public Jet [] jets = new Jet [10];
+	public ArrayList<Jet> jets = new ArrayList<Jet>();
 	
 	public AirField() {
 		Jet cargo1 = new CargoPlane("Boeing 777 Freighter", 901.21 , 9065, 295_700_000);
@@ -11,11 +13,11 @@ public class AirField {
 		Jet fighter2 = new FighterJet("F 15E Strike Eagle", 2655.35, 3889, 36_000_000);
 		Jet plain1 = new PlainJet("Boeing BBJ", 827.18, 7223, 65_000_000);
 		
-		jets[0] = cargo1;
-		jets[1] = cargo2;
-		jets[2] = fighter1;
-		jets[3] = fighter2;
-		jets[4] = plain1;
+		jets.add(cargo1);
+		jets.add(cargo2);
+		jets.add(fighter1);
+		jets.add(fighter2);
+		jets.add(plain1);
 		
 	}
 	
@@ -26,11 +28,11 @@ public class AirField {
 		System.out.println("3. Plain Jets");
 	}
 
-	public Jet[] getJets() {
+	public ArrayList<Jet> getJets() {
 		return jets;
 	}
 
-	public void setJets(Jet[] jets) {
+	public void setJets(ArrayList<Jet> jets) {
 		this.jets = jets;
 	}
 

@@ -25,6 +25,7 @@ public class JetApplication {
 		System.out.println("6. Dogfight!");
 		System.out.println("7. Add a Jet to the FLeet");
 		System.out.println("8. Quit");
+		System.out.print("\n> ");
 
 		int userInput = kb.nextInt();
 		Jet[] jets = airField.getJets();
@@ -67,13 +68,13 @@ public class JetApplication {
 				}
 			}
 			chooseAgain();
-			
+
 		} else if (userInput == 4) {
 			for (int i = 0; i < jets.length; i++) {
 				int longestRange = jets[0].getRange();
 				if (jets[i] != null) {
 					if (jets[i].getRange() > longestRange) {
-						longestRange = jets[i].getRange();
+//						longestRange = jets[i].getRange();
 						System.out.println();
 						System.out.println("The Jet  with the longest range is: " + jets[i].getClass().getSimpleName()
 								+ " " + jets[i].getModel() + " with a range of " + longestRange);
@@ -82,14 +83,17 @@ public class JetApplication {
 			}
 			chooseAgain();
 		}
-
+		else if(userInput == 8) {
+			System.out.println("Goodbye, thank you for browing our Jet information.");
+			System.exit(0);
+		}
 	}
 
 	private static void chooseAgain() {
 		System.out.println("\nWhat would you like to do now?");
 		System.out.println("1. Go back to the main menu");
 		System.out.println("2. Quit");
-		System.out.println();
+		System.out.print("\n> ");
 		int userTryAgain = kb.nextInt();
 
 		if ((userTryAgain != 1) && (userTryAgain != 2)) {

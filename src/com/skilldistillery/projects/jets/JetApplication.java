@@ -66,7 +66,7 @@ public class JetApplication {
 			for (int i = 0; i < jets.length; i++) {
 				if (jets[i] != null) {
 					if (jets[i].getSpeed() > fastestJet.getSpeed()) {
-						 jets[i] = fastestJet;
+						 fastestJet = jets[i];
 					}
 				}
 			}
@@ -82,7 +82,7 @@ public class JetApplication {
 			for (int i = 0; i < jets.length; i++) {
 				if (jets[i] != null) {
 					if (jets[i].getRange() > longestRange.getRange()) {
-						jets[i] = longestRange;
+						longestRange = jets[i];
 					}
 				}
 			}

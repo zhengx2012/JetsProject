@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class JetApplication {
 	static AirField airField = new AirField();
+	static Jet[] jets = airField.getJets();
 	private static Scanner kb = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -28,7 +29,6 @@ public class JetApplication {
 		System.out.print("\n> ");
 
 		int userInput = kb.nextInt();
-		Jet[] jets = airField.getJets();
 
 		if ((userInput < 1) || (userInput > 8)) {
 			System.out.println();
@@ -66,7 +66,7 @@ public class JetApplication {
 			for (int i = 0; i < jets.length; i++) {
 				if (jets[i] != null) {
 					if (jets[i].getSpeed() > fastestJet.getSpeed()) {
-						 fastestJet = jets[i];
+						fastestJet = jets[i];
 					}
 				}
 			}
@@ -87,8 +87,8 @@ public class JetApplication {
 				}
 			}
 			System.out.println();
-			System.out.println("The Jet  with the longest range is: " + longestRange.getClass().getSimpleName()
-					+ " " + longestRange.getModel() + " with a range of " + longestRange.getRange() + " km");
+			System.out.println("The Jet  with the longest range is: " + longestRange.getClass().getSimpleName() + " "
+					+ longestRange.getModel() + " with a range of " + longestRange.getRange() + " km");
 			chooseAgain();
 		}
 
@@ -101,7 +101,27 @@ public class JetApplication {
 		}
 
 		else if (userInput == 7) {
+			int userAddJet = 0;
 
+			do {
+				System.out.println("\nWhat type of Jet would you like to add?");
+				System.out.println("1. Cargo Jets");
+				System.out.println("2. Fighter Jets");
+				System.out.println("3. Plain Jets");
+				System.out.print("\n> ");
+				userAddJet = kb.nextInt();
+
+				airField.addJets(userAddJet);
+
+				if (((userAddJet < 1) || (userAddJet > 3))) {
+					System.err.println("\nIt's easy as 123! So choose between 1 and 3.");
+					System.out.print("\n> ");
+
+				}
+				userInputJetData(userInput);
+
+			} while ((userAddJet < 1) || (userAddJet > 3));
+			chooseAgain();
 		}
 
 		else if (userInput == 8) {
@@ -119,6 +139,7 @@ public class JetApplication {
 
 		if ((userTryAgain != 1) && (userTryAgain != 2)) {
 			System.err.println("That is not an option, please choose only \"1\" or \"2\".");
+			System.out.print("\n> ");
 			chooseAgain();
 		}
 
@@ -129,6 +150,32 @@ public class JetApplication {
 		else if (userTryAgain == 2) {
 			System.out.println("Goodbye, thank you for browing our Jet information.");
 			System.exit(0);
+		}
+
+	}
+
+	// plug userInputs into an Array and pass that to the Jets array
+	private static void userInputJetData(int userInput) {
+		System.out.println("What is the model name?");
+		String inputModel = kb.next();
+
+		System.out.println("\nWhat is the speed in km?");
+		double inputSpeed = kb.nextDouble();
+
+		System.out.println("\nWhat is range in km?");
+		int inputRange = kb.nextInt();
+
+		System.out.println("\nHow much is the jet?");
+		long inputPrice = kb.nextLong();
+
+		if (userInput == 1) {
+			airField.addCargoJets(inputModel, inputSpeed, inputRange, inputPrice);
+		}
+		if (userInput == 3) {
+			airField.addFighterJets(inputModel, inputSpeed, inputRange, inputPrice);
+		}
+		if (userInput == 1) {
+			airField.addPlainJets(inputModel, inputSpeed, inputRange, inputPrice);
 		}
 
 	}

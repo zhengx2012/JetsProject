@@ -112,13 +112,12 @@ public class JetApplication {
 				userAddJet = kb.nextInt();
 
 				airField.addJets(userAddJet);
+				userInputJetData(userInput);
 
 				if (((userAddJet < 1) || (userAddJet > 3))) {
 					System.err.println("\nIt's easy as 123! So choose between 1 and 3.");
 					System.out.print("\n> ");
-
 				}
-				userInputJetData(userInput);
 
 			} while ((userAddJet < 1) || (userAddJet > 3));
 			chooseAgain();
@@ -168,15 +167,16 @@ public class JetApplication {
 		System.out.println("\nHow much is the jet?");
 		long inputPrice = kb.nextLong();
 
-		if (userInput == 1) {
-			airField.addCargoJets(inputModel, inputSpeed, inputRange, inputPrice);
-		}
-		if (userInput == 3) {
-			airField.addFighterJets(inputModel, inputSpeed, inputRange, inputPrice);
-		}
-		if (userInput == 1) {
 			airField.addPlainJets(inputModel, inputSpeed, inputRange, inputPrice);
-		}
+//		if (userInput == 1) {
+//			airField.addCargoJets(inputModel, inputSpeed, inputRange, inputPrice);
+//		}
+//		else if (userInput == 2) {
+//			airField.addFighterJets(inputModel, inputSpeed, inputRange, inputPrice);
+//		}
+//		else if (userInput == 3) {
+//			airField.addPlainJets(inputModel, inputSpeed, inputRange, inputPrice);
+//		}
 
 	}
 

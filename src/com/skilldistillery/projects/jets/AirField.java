@@ -54,18 +54,21 @@ public class AirField {
 	public void addCargoJets(String inputModel, double inputSpeed, int inputRange, long inputPrice) {
 		Jet newJet = new CargoPlane(inputModel, inputSpeed, inputRange, inputPrice);
 		jets[5] = newJet;
+		jets[5].toString();
 
 	}
 
 	public void addFighterJets(String inputModel, double inputSpeed, int inputRange, long inputPrice) {
 		Jet newJet = new FighterJet(inputModel, inputSpeed, inputRange, inputPrice);
 		jets[5] = newJet;
+		jets[5].toString();
 
 	}
 
 	public void addPlainJets(String inputModel, double inputSpeed, int inputRange, long inputPrice) {
 		Jet newJet = new PlainJet(inputModel, inputSpeed, inputRange, inputPrice);
 		jets[5] = newJet;
+		jets[5].toString();
 
 	}
 

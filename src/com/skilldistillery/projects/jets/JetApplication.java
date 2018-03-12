@@ -93,10 +93,13 @@ public class JetApplication {
 		}
 
 		else if (userInput == 5) {
-
+			System.out.println("Thank you for browsing, this option is not yet available");
+			chooseAgain();
 		}
 
 		else if (userInput == 6) {
+			System.out.println("Thank you for browsing, this option is not yet available");
+			chooseAgain();
 
 		}
 
